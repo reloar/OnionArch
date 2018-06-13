@@ -1,0 +1,42 @@
+﻿@using DDD.Web.ViewModel
+@model IEnumerable<DDD.Web.ViewModel.UserViewModel>
+@using DDD.Web.Controllers
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<div class="card pd-20 pd-sm-40 mg-t-50">
+       <div class="table-wrapper">
+        <div id="datatable2_wrapper" class="dataTables_wrapper no-footer">
+            <table id="datatable2" class="table display responsive nowrap dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable2_info" style="width: 500px">
+
+                <tr role="row">
+                    <th>FullName</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                    <tr role="row" class="wd-15p sorting" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1">
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                    </tr>
+                }
+
+                </table>
+                <div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { })
+                        @Html.ActionLink("Back to Home", "Home")
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div><!-- table-wrapper -->
+  
+    <div class="am-footer">
+        <span>Copyright &copy;.@DateTime.Now.Year All Rights Reserved.</span>
+        <span>Created by: ReloarHub,</span>
+    </div><!-- am-footer -->
